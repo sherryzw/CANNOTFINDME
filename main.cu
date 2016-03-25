@@ -53,7 +53,7 @@ bool BruteIncrement(unsigned char* brute, int setLen, int wordLength, int increm
 	return incrementBy != 0; //we are done if there is a remainder, because we have looped over the max
 }
 
-int main( int argc, char** argv) 
+int main( char* argv,int argc) 
 {
 	int wordLength = 6;
 	int charSetLen = 0;
@@ -80,7 +80,9 @@ int main( int argc, char** argv)
 	memcpy(charSet, "abcdefghijklmnopqrstuvwxyz", charSetLen);
 
 	unsigned char hash[32];
-	memcpy(hash, "91633d65575b2d47a7496707a93dc7e4", 32);
+
+	memcpy(hash, &argv, 32);
+	//memcpy(hash, "91633d65575b2d47a7496707a93dc7e4", 32);
 
 	memcpy(leftSalt, "http://", 7); 
 	memcpy(rightSalt, ".com", 4);
