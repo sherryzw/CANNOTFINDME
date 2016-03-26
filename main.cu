@@ -75,9 +75,9 @@ int main( int argc,char* argv[])
 	//for this example, we will crack the hash of "http://ossbox.com"
 	//we will use "http://" as the salt on the left and ".com" as the salt on the right
 	//so our code has to brute force 'ossbox'
-	charSetLen = 26;
+	charSetLen = 26*2;
 	unsigned char charSet[charSetLen];
-	memcpy(charSet, "abcdefghijklmnopqrstuvwxyz", charSetLen);
+	memcpy(charSet, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", charSetLen);
 
 	unsigned char hash[32];
 
