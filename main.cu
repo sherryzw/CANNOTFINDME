@@ -18,8 +18,8 @@
 #define OUTPUT_INTERVAL 20
 
 __device__ __constant__ unsigned char cudaBrute[MAX_BRUTE_LENGTH];
-__device__ __constant__ unsigned char cudaLeftSalt[MAX_SALT_LENGTH];
-__device__ __constant__ unsigned char cudaRightSalt[MAX_SALT_LENGTH];
+//__device__ __constant__ unsigned char cudaLeftSalt[MAX_SALT_LENGTH];
+//__device__ __constant__ unsigned char cudaRightSalt[MAX_SALT_LENGTH];
 __device__ __constant__ unsigned char cudaCharSet[95];
 __device__ unsigned char correctPass[MAX_TOTAL];
 
@@ -86,16 +86,16 @@ int main( int argc,char* argv[])
 	
 	
 
-	memcpy(leftSalt, "http://", 7); 
-	memcpy(rightSalt, ".com", 4);
+	//memcpy(leftSalt, "http://", 7); 
+	//memcpy(rightSalt, ".com", 4);
 	
 	//turn the correct hash into it's four parts
 	uint v1, v2, v3, v4;
 	md5_to_ints(hash,&v1,&v2,&v3,&v4);
 
 	//copy the salts to global
-	cudaMemcpyToSymbol(cudaLeftSalt, &leftSalt, MAX_SALT_LENGTH, 0, cudaMemcpyHostToDevice);
-	cudaMemcpyToSymbol(cudaRightSalt, &rightSalt, MAX_SALT_LENGTH, 0, cudaMemcpyHostToDevice);
+	//cudaMemcpyToSymbol(cudaLeftSalt, &leftSalt, MAX_SALT_LENGTH, 0, cudaMemcpyHostToDevice);
+	//cudaMemcpyToSymbol(cudaRightSalt, &rightSalt, MAX_SALT_LENGTH, 0, cudaMemcpyHostToDevice);
 
 	//zero the container used to hold the correct pass
 	cudaMemcpyToSymbol(correctPass, &cpuCorrectPass, MAX_TOTAL, 0, cudaMemcpyHostToDevice);

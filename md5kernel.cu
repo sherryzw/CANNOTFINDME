@@ -33,21 +33,21 @@ __global__ void crack(uint numThreads, uint charSetLen, uint bruteLength, uint v
 	}
 	
 	i = 0;
-	int ary_i = 0;
-	unsigned char tmp = 0;
-	while((tmp = cudaLeftSalt[ary_i]) != 0)
-	{
-		word[i] = tmp;
-		i++; ary_i++;
-	}
+	//int ary_i = 0;
+	//unsigned char tmp = 0;
+	//while((tmp = cudaLeftSalt[ary_i]) != 0)
+	//{
+	//	word[i] = tmp;
+	//	i++; ary_i++;
+	//}
 	bruteStart = i;
 	i+= bruteLength;
-	ary_i = 0;
-	while((tmp = cudaRightSalt[ary_i]) != 0)
-	{
-		word[i] = tmp;
-		i++; ary_i++;
-	}
+	//ary_i = 0;
+	//while((tmp = cudaRightSalt[ary_i]) != 0)
+	//{
+	//	word[i] = tmp;
+	//	i++; ary_i++;
+	//}
 	totalLen = i;
 
 	IncrementBruteGPU(ourBrute, charSetLen, bruteLength, idx);
